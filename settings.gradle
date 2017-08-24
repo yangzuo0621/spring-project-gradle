@@ -1,0 +1,5 @@
+rootProject.name = 'spring-project-gradle'
+
+include "project-common"
+include "project-core"
+include "project-webapp"

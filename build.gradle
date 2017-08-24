@@ -1,0 +1,39 @@
+allprojects {
+    group = "com.zuo.yang"
+    apply plugin: "idea"
+}
+
+subprojects {
+    apply plugin: "java"
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    ext {
+        springVersion = "5.0.0.RC3"
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://repo.spring.io/libs-milestone' }
+    }
+}
+
+project("project-common") {
+
+}
+
+project("project-core") {
+    dependencies {
+        compile(project(":project-common"))
+    }
+}
+
+project("project-webapp") {
+    apply plugin: "war"
+
+    dependencies {
+        compile(project(":project-core"))
+        compile "org.springframework:spring-context:${springVersion}"
+    }
+}
