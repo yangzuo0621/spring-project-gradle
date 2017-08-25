@@ -35,5 +35,7 @@ project("project-webapp") {
     dependencies {
         compile(project(":project-core"))
         compile "org.springframework:spring-context:${springVersion}"
+        compile "org.springframework:spring-web:${springVersion}"
+        compile "org.springframework:spring-webmvc:${springVersion}"
     }
 }
